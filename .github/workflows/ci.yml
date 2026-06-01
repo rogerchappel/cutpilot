@@ -19,8 +19,9 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v6
 
-      - name: Enable Corepack
-        run: corepack enable
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9.15.0
 
       - name: Validate required project files
         run: |
@@ -63,7 +64,7 @@ jobs:
 
           pnpm install --frozen-lockfile
 
-          pnpm run lint --if-present
-          pnpm test --if-present
-          pnpm run typecheck --if-present
-          pnpm run build --if-present
+          pnpm --if-present run lint
+          pnpm test
+          pnpm --if-present run typecheck
+          pnpm build
