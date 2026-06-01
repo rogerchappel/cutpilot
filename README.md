@@ -23,6 +23,13 @@ cutpilot render --dry-run
 cutpilot artifacts
 ```
 
+For a no-media demo that uses mocked probe metadata and a transcript fixture:
+
+```sh
+pnpm build
+bash examples/quickstart/run.sh
+```
+
 If `ffprobe` is not available during tests or agent planning, pass mock ffprobe output:
 
 ```sh

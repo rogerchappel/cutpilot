@@ -1,0 +1,15 @@
+{
+  "words": [
+    { "start": 0.4, "end": 0.7, "text": "Stop" },
+    { "start": 0.72, "end": 1.1, "text": "editing" },
+    { "start": 1.12, "end": 1.45, "text": "blind" },
+    { "start": 2.1, "end": 2.4, "text": "Cut" },
+    { "start": 2.42, "end": 2.8, "text": "from" },
+    { "start": 2.82, "end": 3.3, "text": "words" },
+    { "start": 4.0, "end": 4.32, "text": "Preview" },
+    { "start": 4.34, "end": 4.62, "text": "the" },
+    { "start": 4.64, "end": 5.12, "text": "timeline" },
+    { "start": 5.14, "end": 5.52, "text": "before" },
+    { "start": 5.54, "end": 5.88, "text": "rendering" }
+  ]
+}
