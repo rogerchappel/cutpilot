@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.cutpilot/
+*.tgz
+.DS_Store
+.env
+.env.*
+!.env.example
+coverage/
+.turbo/
+.pnpm-store/
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*

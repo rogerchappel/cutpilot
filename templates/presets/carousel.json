@@ -1,0 +1,7 @@
+{
+  "name": "carousel",
+  "aspect": "1:1",
+  "targetSeconds": 30,
+  "maxSegments": 8,
+  "description": "A square or social carousel-style sequence with clear beat cards."
+}

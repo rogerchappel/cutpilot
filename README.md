@@ -1,0 +1,104 @@
+# cutpilot
+
+cutpilot is a local-first CLI and agent skill layer for building small, inspectable video edits from local footage. It creates a simple EDL, validates the timeline, plans ffmpeg commands, and writes agent-friendly artifacts such as packed transcript notes and diagnostics.
+
+It is inspired by transcript-first editing workflows, but intentionally smaller: no SaaS, no auth, no billing, no cloud queue, and no proprietary generation pipeline.
+
+## Install
+
+```sh
+pnpm install
+pnpm build
+```
+
+## Quick Start
+
+```sh
+cd /path/to/footage
+cutpilot init
+cutpilot inspect
+cutpilot edl create --preset short-15 --title "Launch short"
+cutpilot edl validate
+cutpilot render --dry-run
+cutpilot artifacts
+```
+
+If `ffprobe` is not available during tests or agent planning, pass mock ffprobe output:
+
+```sh
+cutpilot inspect --probe-json ./probe-fixtures.json
+```
+
+## Commands
+
+- `cutpilot init` creates `.cutpilot/` with edit, render, transcript, artifact, temp, and preset folders.
+- `cutpilot inspect` scans local video files and writes `.cutpilot/manifest.json`.
+- `cutpilot presets` lists `short-15`, `carousel`, and `talking-head-cleanup`.
+- `cutpilot edl create` creates a first-pass EDL from source metadata and optional transcripts.
+- `cutpilot edl validate` checks source bounds, duration, and transcript word-boundary alignment.
+- `cutpilot render --dry-run` emits an ffmpeg command plan without rendering.
+- `cutpilot render` executes the ffmpeg plan locally.
+- `cutpilot artifacts` writes packed transcript notes, timeline diagnostics, and an agent brief.
+- `cutpilot schema` prints the EDL contract.
+
+## Transcript Format
+
+Add optional transcripts at `.cutpilot/transcripts/<source-basename>.json`:
+
+```json
+{
+  "words": [
+    { "start": 0.42, "end": 0.8, "text": "This" },
+    { "start": 0.81, "end": 1.1, "text": "works" }
+  ]
+}
+```
+
+When transcripts exist, cutpilot aligns generated segment edges to word boundaries and warns when a manually edited EDL cuts inside a word.
+
+## EDL Shape
+
+The EDL is JSON:
+
+```json
+{
+  "version": 1,
+  "title": "Launch short",
+  "preset": "short-15",
+  "aspect": "9:16",
+  "targetSeconds": 15,
+  "segments": [
+    {
+      "id": "s01",
+      "source": "take01.mp4",
+      "start": 0.42,
+      "end": 3.72,
+      "role": "hook",
+      "text": "This works",
+      "reason": "Selected from transcript word boundaries."
+    }
+  ]
+}
+```
+
+See `docs/EDL.md` for the contract.
+
+## Agent Skill
+
+`skills/cutpilot/SKILL.md` contains a workflow for Codex, Claude, and OpenClaw-style local agents. The skill focuses on viral-style carousels and 15-second shorts from local footage while keeping user footage untouched.
+
+## Verify
+
+```sh
+bash scripts/validate.sh
+```
+
+The validation script runs local package checks and optional `agent-qc ready` when installed.
+
+## Release Posture
+
+Release docs and ReleaseBox config are scaffolded, but publishing is disabled unless a maintainer explicitly enables it. Do not push, tag, or publish from automation without an explicit instruction.
+
+## License
+
+MIT

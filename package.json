@@ -1,0 +1,47 @@
+{
+  "name": "cutpilot",
+  "version": "0.1.0",
+  "description": "Local-first agentic video editing helper for transcript-aware EDLs and ffmpeg render plans.",
+  "type": "module",
+  "main": "./dist/src/index.js",
+  "bin": {
+    "cutpilot": "./dist/src/cli.js"
+  },
+  "exports": {
+    ".": "./dist/src/index.js"
+  },
+  "files": [
+    "dist",
+    "templates",
+    "skills",
+    "README.md",
+    "docs"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "check": "tsc --noEmit",
+    "test": "npm run build && node --test dist/tests/**/*.test.js",
+    "dev": "tsx src/cli.ts",
+    "smoke": "node dist/src/cli.js --help",
+    "package:smoke": "npm pack --dry-run",
+    "release:check": "npm run check && npm test && npm run package:smoke"
+  },
+  "keywords": [
+    "video",
+    "ffmpeg",
+    "edl",
+    "cli",
+    "agent",
+    "transcript"
+  ],
+  "author": "Roger Chappel",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.1",
+    "tsx": "^4.19.2",
+    "typescript": "^6.0.3"
+  }
+}

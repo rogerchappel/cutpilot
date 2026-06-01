@@ -1,0 +1,7 @@
+{
+  "name": "talking-head-cleanup",
+  "aspect": "16:9",
+  "targetSeconds": 120,
+  "maxSegments": 24,
+  "description": "A cleaned talking-head edit that trims dead space and filler."
+}

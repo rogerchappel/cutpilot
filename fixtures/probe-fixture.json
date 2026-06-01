@@ -1,0 +1,18 @@
+{
+  "take01.mp4": {
+    "format": {
+      "duration": "12.000"
+    },
+    "streams": [
+      {
+        "codec_type": "video",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_type": "audio"
+      }
+    ]
+  }
+}
