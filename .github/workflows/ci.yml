@@ -19,6 +19,9 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v6
 
+      - name: Enable Corepack
+        run: corepack enable
+
       - name: Validate required project files
         run: |
           set -euo pipefail
@@ -58,13 +61,9 @@ jobs:
             exit 0
           fi
 
-          if [ -f package-lock.json ]; then
-            npm ci
-          else
-            npm install
-          fi
+          pnpm install --frozen-lockfile
 
-          npm run lint --if-present
-          npm test --if-present
-          npm run typecheck --if-present
-          npm run build --if-present
+          pnpm run lint --if-present
+          pnpm test --if-present
+          pnpm run typecheck --if-present
+          pnpm run build --if-present

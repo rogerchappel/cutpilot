@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "Local-first agentic video editing helper for transcript-aware EDLs and ffmpeg render plans.",
   "type": "module",
+  "packageManager": "pnpm@9.15.0",
   "main": "./dist/src/index.js",
   "bin": {
     "cutpilot": "./dist/src/cli.js"
