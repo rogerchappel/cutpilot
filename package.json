@@ -17,7 +17,8 @@
     "templates",
     "skills",
     "README.md",
-    "docs"
+    "docs",
+    "LICENSE"
   ],
   "scripts": {
     "build": "tsc",
@@ -45,5 +46,13 @@
     "@types/node": "^25.9.1",
     "tsx": "^4.19.2",
     "typescript": "^6.0.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rogerchappel/cutpilot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rogerchappel/cutpilot/issues"
+  },
+  "homepage": "https://github.com/rogerchappel/cutpilot#readme"
 }
