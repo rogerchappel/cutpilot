@@ -106,6 +106,15 @@ The validation script runs local package checks and optional `agent-qc ready` wh
 
 Release docs and ReleaseBox config are scaffolded, but publishing is disabled unless a maintainer explicitly enables it. Do not push, tag, or publish from automation without an explicit instruction.
 
+## Verification
+
+Use the package scripts as the public smoke gates before publishing or changing CLI behavior.
+
+- `npm run release:check`
+- `npm run test`
+- `npm run smoke`
+- `npm run check`
+
 ## License
 
 MIT

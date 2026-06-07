@@ -18,7 +18,8 @@
     "skills",
     "README.md",
     "docs",
-    "LICENSE"
+    "LICENSE",
+    "SECURITY.md"
   ],
   "scripts": {
     "build": "tsc",
