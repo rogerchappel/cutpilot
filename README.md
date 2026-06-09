@@ -114,7 +114,20 @@ Use the package scripts as the public smoke gates before publishing or changing 
 - `npm run test`
 - `npm run smoke`
 - `npm run check`
+## Release readiness
+
+Run the same checks expected before opening or cutting a release:
+
+```sh
+npm run check
+npm run test
+npm run build
+npm run smoke
+npm run package:smoke
+npm run release:check
+```
+
+Use `npm pack --dry-run` to confirm the published package contains the CLI/runtime files plus README, license, security, support, and release notes.
 
 ## License
-
 MIT
