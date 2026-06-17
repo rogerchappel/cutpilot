@@ -30,7 +30,7 @@
     "dev": "tsx src/cli.ts",
     "smoke": "node dist/src/cli.js --help",
     "package:smoke": "npm pack --dry-run",
-    "release:check": "npm run check && npm test && npm run package:smoke"
+    "release:check": "npm run check && npm test && npm run smoke && npm run package:smoke"
   },
   "keywords": [
     "video",
