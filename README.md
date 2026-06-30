@@ -4,6 +4,20 @@ cutpilot is a local-first CLI and agent skill layer for building small, inspecta
 
 It is inspired by transcript-first editing workflows, but intentionally smaller: no SaaS, no auth, no billing, no cloud queue, and no proprietary generation pipeline.
 
+
+## Quickstart
+
+Run the tool from a fresh checkout:
+
+```sh
+npm install
+npm run build
+node dist/src/cli.js --help
+npm test
+```
+
+The help command is a quick smoke test for the CLI entrypoint, and `npm test` runs the committed regression suite before you depend on the output.
+
 ## Install
 
 ```sh
