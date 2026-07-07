@@ -50,6 +50,17 @@ If `ffprobe` is not available during tests or agent planning, pass mock ffprobe 
 cutpilot inspect --probe-json ./probe-fixtures.json
 ```
 
+## Limitations
+
+- cutpilot plans and validates local edits; it is not a hosted editor, renderer
+  queue, asset manager, or transcription service.
+- Real rendering depends on local `ffmpeg`/`ffprobe` availability and codec
+  support. Use `render --dry-run` to inspect commands before executing them.
+- Transcript alignment is only as accurate as the transcript timing supplied in
+  `.cutpilot/transcripts/`.
+- Generated EDLs are first-pass editing plans. Review segment choices, rights,
+  captions, and export settings before publishing a cut.
+
 ## Commands
 
 - `cutpilot init` creates `.cutpilot/` with edit, render, transcript, artifact, temp, and preset folders.
