@@ -154,5 +154,12 @@ npm run release:check
 
 Use `npm pack --dry-run` to confirm the published package contains the CLI/runtime files plus README, license, security, support, and release notes.
 
+## Limitations and safety
+
+- cutpilot plans local edits and ffmpeg commands; it does not judge whether a clip is legally or contractually safe to publish. Review source rights, consent, and platform rules before rendering or sharing.
+- The generated EDL is a starting point. Inspect transcript-aligned cuts, source bounds, and dry-run ffmpeg commands before running a real render.
+- Mock probe data is for tests and planning only. Use real ffprobe output before relying on duration, codec, or resolution decisions for a final edit.
+- Automation should keep original footage read-only and write outputs under the project workspace so cleanup remains reversible.
+
 ## License
 MIT
