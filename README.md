@@ -50,16 +50,23 @@ If `ffprobe` is not available during tests or agent planning, pass mock ffprobe 
 cutpilot inspect --probe-json ./probe-fixtures.json
 ```
 
-## Limitations
+## Limitations and safety
 
 - cutpilot plans and validates local edits; it is not a hosted editor, renderer
   queue, asset manager, or transcription service.
+- cutpilot does not judge whether a clip is legally or contractually safe to
+  publish. Review source rights, consent, and platform rules before rendering or
+  sharing.
 - Real rendering depends on local `ffmpeg`/`ffprobe` availability and codec
   support. Use `render --dry-run` to inspect commands before executing them.
 - Transcript alignment is only as accurate as the transcript timing supplied in
   `.cutpilot/transcripts/`.
 - Generated EDLs are first-pass editing plans. Review segment choices, rights,
   captions, and export settings before publishing a cut.
+- Mock probe data is for tests and planning only. Use real ffprobe output before
+  relying on duration, codec, or resolution decisions for a final edit.
+- Automation should keep original footage read-only and write outputs under the
+  project workspace so cleanup remains reversible.
 
 ## Commands
 
@@ -153,13 +160,6 @@ npm run release:check
 ```
 
 Use `npm pack --dry-run` to confirm the published package contains the CLI/runtime files plus README, license, security, support, and release notes.
-
-## Limitations and safety
-
-- cutpilot plans local edits and ffmpeg commands; it does not judge whether a clip is legally or contractually safe to publish. Review source rights, consent, and platform rules before rendering or sharing.
-- The generated EDL is a starting point. Inspect transcript-aligned cuts, source bounds, and dry-run ffmpeg commands before running a real render.
-- Mock probe data is for tests and planning only. Use real ffprobe output before relying on duration, codec, or resolution decisions for a final edit.
-- Automation should keep original footage read-only and write outputs under the project workspace so cleanup remains reversible.
 
 ## License
 MIT
